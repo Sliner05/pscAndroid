@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true" />
+
+    <include
+        layout="@layout/content_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/buttonStart"
+        android:layout_width="159dp"
+        android:layout_height="wrap_content"
+        android:text="Start psc"
+        android:translationX="100dp"
+        android:translationY="100dp"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/buttonStop"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:text="Stop psc"
+        android:translationX="100dp"
+        android:translationY="200dp" />
+
+    <Button
+        android:id="@+id/buttonChoosePath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:insetLeft="0dp"
+        android:text="ChooseLocation"
+        android:translationX="100dp"
+        android:translationY="400dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
