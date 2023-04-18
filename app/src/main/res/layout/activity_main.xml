@@ -50,6 +50,6 @@
         android:insetLeft="0dp"
         android:text="ChooseLocation"
         android:translationX="200dp"
-        android:translationY="400dp" />
+        android:translationY="300dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
