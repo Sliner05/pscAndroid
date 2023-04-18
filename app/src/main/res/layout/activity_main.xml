@@ -10,7 +10,16 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true" />
+        android:fitsSystemWindows="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:titleTextColor="@android:color/white" ></androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <include
         layout="@layout/content_main"
@@ -22,7 +31,7 @@
         android:layout_width="159dp"
         android:layout_height="wrap_content"
         android:text="Start psc"
-        android:translationX="100dp"
+        android:translationX="200dp"
         android:translationY="100dp"
         tools:visibility="visible" />
 
@@ -31,7 +40,7 @@
         android:layout_width="155dp"
         android:layout_height="wrap_content"
         android:text="Stop psc"
-        android:translationX="100dp"
+        android:translationX="200dp"
         android:translationY="200dp" />
 
     <Button
@@ -40,7 +49,7 @@
         android:layout_height="wrap_content"
         android:insetLeft="0dp"
         android:text="ChooseLocation"
-        android:translationX="100dp"
+        android:translationX="200dp"
         android:translationY="400dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
