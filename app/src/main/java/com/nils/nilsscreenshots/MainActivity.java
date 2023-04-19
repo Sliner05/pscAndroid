@@ -1,11 +1,21 @@
 package com.nils.nilsscreenshots;
 
 import android.os.Bundle;
+import android.app.admin.DevicePolicyManager;
+import android.content.Intent;
+import android.provider.Settings;
+import android.widget.Toast;
+import android.graphics.Bitmap;
+import android.os.Environment;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Environment;
 import android.view.View;
 
 import androidx.core.view.WindowCompat;
@@ -19,7 +29,74 @@ import com.nils.nilsscreenshots.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity {
+
+    public void startpsc (View view){
+        // Settings.Secure.putInt(getContentResolver(), Settings.Secure.LOCK_TO_APP_EXIT, 1);
+        showButton();
+    }
+        public void showButton (){
+            Intent intent = new Intent(this, OverlayButtonService.class);
+            startService(intent);
+
+        }
+
+    public void stoppsc (View view){
+       // Settings.Secure.putInt(getContentResolver(), Settings.Secure.LOCK_TO_APP_EXIT, 0);
+        hideButton();
+    }
+        public void hideButton (){
+            // TODO hide Button
+        }
+    public void choosePath (View view){
+        // TODO open android Dialog and safe Path
+        // unnötig da Pfad hardcoded wird für eigengebrauch
+        Toast.makeText(getApplicationContext(),"/SD/Pictures/NilsScreenshots",Toast.LENGTH_SHORT).show();
+    }
+    File dir = new File(Environment.getExternalStorageDirectory() + "/Pictures/NilsScreenshots");
+
+    public void safePicture () {
+        // TODO take picture and safe to path
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        File file = new File(dir, "img.png");
+
+            // Nehme einen Screenshot auf
+            Bitmap screenshot = takeScreenshot();
+
+            // Speichere den Screenshot im externen Speicher
+            saveScreenshot(screenshot);
+
+    }
+
+    private Bitmap takeScreenshot () {
+        View rootView = getWindow().getDecorView().getRootView();
+        rootView.setDrawingCacheEnabled(true);
+        return rootView.getDrawingCache();
+    }
+
+
+    // Convert bitmap to PNG
+    private void saveScreenshot(Bitmap screenshot){
+        try {
+            FileOutputStream fos = new FileOutputStream(dir);
+            screenshot.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+
+
+
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;

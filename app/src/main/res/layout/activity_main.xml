@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true">
@@ -17,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:titleTextColor="@android:color/white" ></androidx.appcompat.widget.Toolbar>
+            app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -33,7 +34,8 @@
         android:text="Start psc"
         android:translationX="200dp"
         android:translationY="100dp"
-        tools:visibility="visible" />
+        tools:visibility="visible"
+        android:onClick="startpsc" />
 
     <Button
         android:id="@+id/buttonStop"
@@ -41,7 +43,8 @@
         android:layout_height="wrap_content"
         android:text="Stop psc"
         android:translationX="200dp"
-        android:translationY="200dp" />
+        android:translationY="200dp"
+        android:onClick="stoppsc" />
 
     <Button
         android:id="@+id/buttonChoosePath"
@@ -50,6 +53,17 @@
         android:insetLeft="0dp"
         android:text="ChooseLocation"
         android:translationX="200dp"
-        android:translationY="300dp" />
+        android:translationY="300dp"
+        android:onClick="choosePath" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="pscUsable"
+        app:layout_anchor="@+id/appBarLayout"
+        app:layout_anchorGravity="center" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
