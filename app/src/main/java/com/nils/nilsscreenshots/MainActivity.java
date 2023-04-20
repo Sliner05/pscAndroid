@@ -38,17 +38,35 @@ public class MainActivity extends AppCompatActivity {
         showButton();
     }
         public void showButton (){
+            /*
             Intent intent = new Intent(this, OverlayButtonService.class);
             startService(intent);
 
-        }
+             */
+
+            /*
+                @Override
+                protected void onCreate(Bundle savedInstanceState) {
+                    super.onCreate(savedInstanceState);
+                    setContentView(R.layout.activity_main);
+            */
+
+                    // Starte den Floating Widget Service
+                    Intent intent = new Intent(this, FloatingWidgetService.class);
+                    startService(intent);
+                }
+
+
+
+
 
     public void stoppsc (View view){
        // Settings.Secure.putInt(getContentResolver(), Settings.Secure.LOCK_TO_APP_EXIT, 0);
         hideButton();
     }
         public void hideButton (){
-            // TODO hide Button
+            Intent intent = new Intent(this, FloatingWidgetService.class);
+            stopService(intent);
         }
     public void choosePath (View view){
         // TODO open android Dialog and safe Path
@@ -146,3 +164,6 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 }
+
+
+

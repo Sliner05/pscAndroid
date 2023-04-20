@@ -19,6 +19,11 @@
         android:theme="@style/Theme.NilsScreenshots"
         tools:targetApi="31"
         android:appCategory="image">
+
+        <service
+            android:name=".FloatingWidgetService"
+            android:enabled="true"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
